@@ -1,0 +1,58 @@
+{
+  "name": "zapfamily",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "exe": "electron-builder --win portable --publish never"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "ZapFamily — rede social estilo WhatsApp",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "session-file-store": "^1.5.0",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "electron": "^41.7.1",
+    "electron-builder": "^26.15.3",
+    "resedit": "^3.1.0"
+  },
+  "build": {
+    "appId": "com.zapfamily.app",
+    "productName": "ZapFamily",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "server.js",
+      "public/**/*",
+      "electron/**/*",
+      "assets/icon.png",
+      "package.json",
+      "electron/preload.js"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "ZapFamily.exe"
+    },
+    "compression": "normal"
+  }
+}
